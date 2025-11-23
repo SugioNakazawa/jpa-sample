@@ -1,0 +1,41 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'com.example'
+version = '1.0-SNAPSHOT'
+
+java {
+    sourceCompatibility = JavaVersion.VERSION_17
+    targetCompatibility = JavaVersion.VERSION_17
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    // Jakarta Persistence API 3.2
+    implementation 'jakarta.persistence:jakarta.persistence-api:3.2.0'
+    
+    // Hibernate (JPA Implementation) - compatible with Jakarta Persistence 3.2
+    implementation 'org.hibernate.orm:hibernate-core:7.1.4.Final'
+    
+    // H2 Database (In-memory database for testing)
+    implementation 'com.h2database:h2:2.2.224'
+    
+    // PostgreSQL Database
+    implementation 'org.postgresql:postgresql:42.7.3'
+    
+    // SLF4J (Logging)
+    implementation 'org.slf4j:slf4j-simple:2.0.9'
+}
+
+application {
+    mainClass = 'com.example.Main'
+}
+
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
