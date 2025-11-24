@@ -13,15 +13,23 @@
         <class>com.example.entity.Product</class>
         
         <properties>
+            <!-- Tsurugi -->
+            <property name="jakarta.persistence.jdbc.driver" value="com.tsurugidb.jdbc.TsurugiDriver"/>
+            <property name="jakarta.persistence.jdbc.url" value="jdbc:tsurugi:tcp://localhost:12345"/>
+            <property name="jakarta.persistence.jdbc.user" value="user"/>
+            <property name="jakarta.persistence.jdbc.password" value="password"/>
+            <property name="hibernate.dialect" value="com.tsurugidb.hibernate.TsurugiDialect"/>
+
             <!-- データベース接続設定 (PostgreSQL) -->
-            <!-- 使用するデータベースに応じてコメントアウトを切り替えてください -->
             
             <!-- PostgreSQL -->
+            <!-- 
             <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
             <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/jpa_sample"/>
             <property name="jakarta.persistence.jdbc.user" value="postgres"/>
             <property name="jakarta.persistence.jdbc.password" value="postgres"/>
             <property name="hibernate.dialect" value="org.hibernate.dialect.PostgreSQLDialect"/>
+            -->
             
             <!-- H2 (in-memory) - テスト用 -->
             <!--
@@ -33,7 +41,8 @@
             -->
 
             <!-- Hibernate設定 -->
-            <property name="hibernate.hbm2ddl.auto" value="create-drop"/>
+            <!-- <property name="hibernate.hbm2ddl.auto" value="create-drop"/> -->
+            <property name="hibernate.hbm2ddl.auto" value="none"/>
             <property name="hibernate.show_sql" value="true"/>
             <property name="hibernate.format_sql" value="true"/>
             <property name="hibernate.use_sql_comments" value="true"/>

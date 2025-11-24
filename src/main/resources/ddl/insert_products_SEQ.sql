@@ -1,0 +1,1 @@
+insert into products_SEQ values(1);

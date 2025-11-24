@@ -1,0 +1,1 @@
+insert into users_SEQ values(1);
