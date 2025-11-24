@@ -235,6 +235,16 @@ tgsql --script -c tcp://localhost:12345 src/main/resources/ddl/insert_users_SEQ.
 - [Hibernate Documentation](https://hibernate.org/orm/documentation/)
 - [H2 Database Documentation](https://www.h2database.com/)
 
+## GenerationType.IDENTITY でのエラー原因
+
+Tsurugi JDBC ドライバーは `getGeneratedKeys` メソッドをサポートしていないため、`GenerationType.IDENTITY` を使用するとエラーが発生します。
+Hibernate は insert 文の実行後に 以下の SQL 発行します。
+
+```sql
+select
+    currval('users_id_seq')
+```
+
 ## ライセンス
 
 このサンプルプロジェクトは学習目的で自由に使用できます。
